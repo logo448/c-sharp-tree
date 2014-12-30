@@ -42,6 +42,7 @@ namespace GameTree
             data.Add(new List<int>() { move });
             data.Add(new List<int>() {last_parent});
             data.Add(new List<int>());
+            data.Add(new List<int>());
             lookups.Add(lookups.Last() + 1);
             nodes.Add(lookups.Last(), data);
             current = lookups.Last();
@@ -68,6 +69,7 @@ namespace GameTree
             data.Add(board);
             data.Add(new List<int>() {move});
             data.Add(new List<int>() { 0 });
+            data.Add(new List<int>());
             data.Add(new List<int>());
             nodes.Add(0, data);
             current = lookups.Last();
