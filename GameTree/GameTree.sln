@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTree", "GameTree.csproj", "{08CCBD20-E3EF-44A2-B105-E2974920F6E8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "..\Testing\Testing.csproj", "{580320CE-31EF-470D-B1AC-9B3D938287DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{08CCBD20-E3EF-44A2-B105-E2974920F6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CCBD20-E3EF-44A2-B105-E2974920F6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CCBD20-E3EF-44A2-B105-E2974920F6E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{580320CE-31EF-470D-B1AC-9B3D938287DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{580320CE-31EF-470D-B1AC-9B3D938287DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{580320CE-31EF-470D-B1AC-9B3D938287DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580320CE-31EF-470D-B1AC-9B3D938287DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

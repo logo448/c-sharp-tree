@@ -24,6 +24,7 @@ namespace GameTree
             this.lookups = new List<int>();
             lookups.Add(0);
             last_parent = 0;
+            nodes = new Dictionary<int, List<List<int>>>();
         }
 
         public void add_data(List<int> board, int move)
@@ -37,9 +38,17 @@ namespace GameTree
             nodes.Add(lookups.Last(), data);
         }
 
-        public void check_children(int parent_lookup)
+        public void check_children(int parent_lookup, int lookup)
         {
-
+            List<List<int>> value = new List<List<int>>();
+            if (nodes.TryGetValue(parent_lookup, out value))
+            {
+                if (!value[3].Contains(lookup))
+                {
+                    value[3].Add(lookup);
+                    nodes[parent_lookup] = value;
+                }
+            }
         }
 
         public void create_root(List<int> board, int move)
