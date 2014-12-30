@@ -22,12 +22,17 @@ namespace GameTree
         // current lookup number
         public int current;
 
+        // a variable to signify if the user tried to use the up function
+        // when currently on root node
+        public bool root_up;
+
         public tree()
         {
             lookups = new List<int>();
             lookups.Add(0);
             last_parent = 0;
             nodes = new Dictionary<int, List<List<int>>>();
+            root_up = false;
         }
 
         public void add_data(List<int> board, int move)
@@ -73,7 +78,7 @@ namespace GameTree
             last_parent = current;
         }
 
-        private List<List<int>> checkout_node(int lookup)
+        public List<List<int>> checkout_node(int lookup)
         {
             List<List<int>> value = new List<List<int>>();
             if (nodes.TryGetValue(lookup, out value))
@@ -89,6 +94,10 @@ namespace GameTree
 
         public void up()
         {
+            if (current == 0)
+            {
+                root_up = true;
+            }
             List<List<int>> val = checkout_node(current);
             current = val[2][0];
             get_new_last_parent();
