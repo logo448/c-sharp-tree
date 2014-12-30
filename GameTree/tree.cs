@@ -11,20 +11,20 @@ namespace GameTree
     public class tree
     {
         // list of all nodes
-        public Dictionary<int, List<List<int>>> nodes;
+        private Dictionary<int, List<List<int>>> nodes;
 
         // list of all used lookups
         private List<int> lookups;
 
         // the lookup for the last parent node
-        public int last_parent;
+        private int last_parent;
 
         // current lookup number
         public int current;
 
         public tree()
         {
-            this.lookups = new List<int>();
+            lookups = new List<int>();
             lookups.Add(0);
             last_parent = 0;
             nodes = new Dictionary<int, List<List<int>>>();
@@ -44,7 +44,7 @@ namespace GameTree
             get_new_last_parent();
         }
 
-        public void check_children(int parent_lookup, int lookup)
+        private void check_children(int parent_lookup, int lookup)
         {
             List<List<int>> value = new List<List<int>>();
             if (nodes.TryGetValue(parent_lookup, out value))
@@ -68,12 +68,12 @@ namespace GameTree
             current = lookups.Last();
         }
 
-        public void get_new_last_parent()
+        private void get_new_last_parent()
         {
             last_parent = current;
         }
 
-        public List<List<int>> checkout_node(int lookup)
+        private List<List<int>> checkout_node(int lookup)
         {
             List<List<int>> value = new List<List<int>>();
             if (nodes.TryGetValue(lookup, out value))
@@ -92,6 +92,6 @@ namespace GameTree
             List<List<int>> val = checkout_node(current);
             current = val[2][0];
             get_new_last_parent();
-        }
+        }       
     }
 }
