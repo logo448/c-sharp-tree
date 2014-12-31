@@ -35,10 +35,10 @@ namespace GameTree
             root_up = false;
         }
 
-        public void add_data(List<int> board, int move)
+        public void add_data(int move, int turn)
         {
             List<List<int>> data = new List<List<int>>();
-            data.Add(board);
+            data.Add(new List<int>());
             data.Add(new List<int>() { move });
             data.Add(new List<int>() {last_parent});
             data.Add(new List<int>());
@@ -46,6 +46,7 @@ namespace GameTree
             lookups.Add(lookups.Last() + 1);
             nodes.Add(lookups.Last(), data);
             current = lookups.Last();
+            add_board(turn);
             check_children(last_parent, current);
             get_new_last_parent();
         }
@@ -103,6 +104,16 @@ namespace GameTree
             List<List<int>> val = checkout_node(current);
             current = val[2][0];
             get_new_last_parent();
-        }       
+        }
+
+        public void add_board(int turn)
+        {
+            var par_val = checkout_node(last_parent);
+            var child_val = checkout_node(current);
+
+            par_val[0][child_val[1][0]] = turn;
+            child_val[0] = par_val[0];
+            nodes[current] = child_val;
+        }
     }
 }
