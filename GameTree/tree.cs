@@ -108,11 +108,11 @@ namespace GameTree
 
         public void add_board(int turn)
         {
-            var par_val = checkout_node(last_parent);
+            var par_val = new List<int>(checkout_node(last_parent)[0]);
             var child_val = checkout_node(current);
 
-            par_val[0][child_val[1][0]] = turn;
-            child_val[0] = par_val[0];
+            par_val[child_val[1][0]] = turn;
+            child_val[0] = par_val;
             nodes[current] = child_val;
         }
     }
